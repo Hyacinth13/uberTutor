@@ -1,21 +1,37 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
-import Title from 'react-title-component'
+import { connect } from 'react-redux'
+import { logOut, loggedIn } from './actions'
 
-export default React.createClass({
+
+class App extends React.Component {
   render() {
     return (
       <div>
-        <Title render="Awesome App"/>
-        <h1>Welcome to your app.</h1>
         <ul>
-          <li><IndexLink to="/">Home</IndexLink></li>
-          <li><Link to="/dragon">A DRAGON!</Link></li>
-          <li><Link to="/not-dragon">An old URL to a DRAGON!</Link></li>
+          <li>
+            {this.props.auth ? (
+              <a href="#"
+                onClick { e =>
+                  {
+                    e.preventDefault
+                    this.props.dispatch(logOut())
+                    this.props.history.push('/login')
+                  }
+                }
+              >
+              Logout
+              </a>
+            ): (<Link to="/login">Sign In</Link>)}
         </ul>
-        {this.props.children}
       </div>
     )
   }
-})
+}
+
+const mapStateToProps = (state) => {
+  return {auth: state.auth.isAuthenticated }
+}
+
+export default connect(mapStateToProps, null)(App)
 
