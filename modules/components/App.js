@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { IndexLink, Link } from 'react-router'
 import { connect } from 'react-redux'
 import { logOut, loggedIn } from './actions'
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+  }
+  
+  constructor(props) {
+  super(props)
+}
+
+componentWillMount() {
+  if (sessionStorage.token && !this.props.auth)
+    this.props.dispatch(loggedIn(sessionStorage.userId, sessionStorage.token))
+}
   render() {
     return (
       <div>
