@@ -1,48 +1,50 @@
-import React, { Component } from 'react'
-import { IndexLink, Link } from 'react-router'
+import React from 'react'
+import { Link } from 'react-router'
+import Title from 'react-title-component'
 import { connect } from 'react-redux'
-import { logOut, loggedIn } from './actions'
-
+import { logout, loggedIn } from './actions'
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
-  
-  constructor(props) {
-  super(props)
-}
 
-componentWillMount() {
-  if (sessionStorage.token && !this.props.auth)
-    this.props.dispatch(loggedIn(sessionStorage.userId, sessionStorage.token))
-}
+  componentWillMount() {
+    if (sessionStorage.token && !this.props.auth)
+      this.props.dispatch(loggedIn(sessionStorage.userId, sessionStorage.token))
+  }
+
   render() {
     return (
       <div>
         <ul>
           <li>
-            {this.props.auth ? (
-              <a href="#"
-                onClick { e =>
-                  {
-                    e.preventDefault
-                    this.props.dispatch(logOut())
-                    this.props.history.push('/login')
-                  }
-                }
-              >
-              Logout
-              </a>
-            ): (<Link to="/login">Sign In</Link>)}
+           {this.props.auth ? (
+             <a href="#"
+               onClick={ e => {
+                 {
+                   e.preventDefault()
+                   this.props.dispatch(logout())
+                   this.props.history.push('/login')
+                 }
+               }}
+             >
+              Log out
+             </a>
+           ) : (<Link to="/login">Sign In</Link>)}
+           </li>
+           <li><Link to="/dashboard">Dashboard</Link></li>
+           <li><Link to="/about">About</Link></li>
         </ul>
+        {this.props.children}
       </div>
     )
   }
+
 }
 
 const mapStateToProps = (state) => {
-  return {auth: state.auth.isAuthenticated }
+  return { auth: state.auth.isAuthenticated }
 }
 
 export default connect(mapStateToProps, null)(App)

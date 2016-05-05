@@ -3,7 +3,6 @@ import React from 'react'
 import { Route } from 'react-router'
 import { ServerRoute } from 'react-project'
 import App from './components/App'
-import NoMatch from './components/NoMatch'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import About from './components/About'
@@ -31,6 +30,5 @@ export default (
       <ServerRoute path="signin" post={signIn} />
       <ServerRoute path="todos" post={createTodo} get={getTodos} />
     </ServerRoute>
-    <Route path="*" status={404} component={NoMatch}/>
   </Route>
 )

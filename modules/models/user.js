@@ -5,6 +5,7 @@ import passportLocalMongoose from 'passport-local-mongoose'
 let User = new Schema({
   username: String,
   password: String,
+  displayName: String,
   tutor: Boolean
 })
 
