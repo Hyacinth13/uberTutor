@@ -42,7 +42,6 @@ class App extends React.Component {
   }
 
 }
-
 const mapStateToProps = (state) => {
   return { auth: state.auth.isAuthenticated }
 }
