@@ -22,7 +22,7 @@ class App extends React.Component {
 
       <div>
       <Title render="Uber Tutor" />
-        <Navbar brand="Uber Tutor" left>
+        <Navbar brand="Uber Tutor" right>
           <NavItem><Link to="/login">Login</Link></NavItem>
           <NavItem><Link to="/about">About</Link></NavItem>
         </Navbar>  
