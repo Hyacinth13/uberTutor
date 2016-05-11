@@ -7,6 +7,7 @@ const shims = `
   (String.prototype.trim && Function.prototype.bind) || document.write('<script src="/es5-shim.js"><\\/script>');
   window.Promise || document.write('<script src="/Promise.js"><\\/script>');
   window.fetch || document.write('<script src="/fetch.js"><\\/script>');
+  window.$ || document.write('<script src="/vendor/jquery/dist/jquery.min.js"><\\/script>')
 `
 
 const Document = React.createClass({
@@ -32,6 +33,7 @@ const Document = React.createClass({
           <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <link rel="stylesheet" href="/vendor/Materialize/dist/css/materialize.min.css" />
           {styles}
         </head>
         <body>
