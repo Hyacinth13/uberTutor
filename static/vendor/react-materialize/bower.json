@@ -1,0 +1,21 @@
+{
+  "name": "react-materialize",
+  "version": "0.1.0",
+  "homepage": "https://github.com/akiran/react-materialize",
+  "authors": [
+    "Kiran Abburi"
+  ],
+  "description": "react port of materialize",
+  "keywords": [
+    "react",
+    "materialize"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

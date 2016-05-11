@@ -1,0 +1,30 @@
+{
+  "name": "react-materialize",
+  "homepage": "https://github.com/akiran/react-materialize",
+  "authors": [
+    "Kiran Abburi"
+  ],
+  "description": "react port of materialize",
+  "keywords": [
+    "react",
+    "materialize"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "48b4b246fd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "48b4b246fdf72e96bd02acbe3c770731459307fe"
+  },
+  "_source": "https://github.com/akiran/react-materialize.git",
+  "_target": "*",
+  "_originalSource": "react-materialize",
+  "_direct": true
+}

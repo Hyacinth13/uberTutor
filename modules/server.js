@@ -8,7 +8,7 @@ import mongoose from 'mongoose'
 import passport from 'passport'
 import local from 'passport-local'
 import session from 'express-session'
-import Student from './models/student'
+import User from './models/user'
 let LocalStrategy = local.Strategy
 
 function getApp(req, res, requestCallback) {
@@ -28,9 +28,9 @@ const server = createServer(getApp)
 server.use( session({ secret: 'secret', resave: false, saveUnitialized: false }))
 server.use(passport.initialize())
 
-passport.use(new LocalStrategy(Student.authenticate()))
-passport.serializeUser(Student.serializeUser())
-passport.deserializeUser(Student.deserializeUser())
+passport.use(new LocalStrategy(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 mongoose.connect('mongodb://localhost/auth-3')
 

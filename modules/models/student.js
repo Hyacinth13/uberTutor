@@ -2,13 +2,14 @@ import mongoose from 'mongoose'
 let Schema = mongoose.Schema
 import passportLocalMongoose from 'passport-local-mongoose'
 
-let Student = new Schema({
+let User = new Schema({
   username: String,
   password: String,
   displayName: String,
-  tutor: Boolean
+  userType: String,
+  phoneNumber: String
 })
 
-Student.plugin(passportLocalMongoose)
+User.plugin(passportLocalMongoose)
 
-module.exports = mongoose.model('Student', Student)
+module.exports = mongoose.model('User', User)

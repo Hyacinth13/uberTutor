@@ -1,8 +1,9 @@
 import passport from 'passport'
 import User from '../models/user'
 
+
 export const signUp = (req, res) => {
-  User.register(new User({ username : req.body.email }), req.body.password, function (err, user) {
+  User.register(new User({ username : req.body.email, phoneNumber: req.body.phone, userType: req.body.type }), req.body.password, function (err, user) {
     if (err) {
       return res.status(500).json(err.message)
     }
