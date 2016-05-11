@@ -33,7 +33,7 @@ const Document = React.createClass({
           <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <link rel="stylesheet" href="/vendor/Materialize/dist/css/materialize.min.css" />
+          <link rel="stylesheet" href="/vendor/Materialize/dist/css/materialize.min.css" />          
           {styles}
         </head>
         <body>

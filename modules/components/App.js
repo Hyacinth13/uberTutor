@@ -4,6 +4,8 @@ import Title from 'react-title-component'
 import { connect } from 'react-redux'
 import { logout, loggedIn } from './actions'
 import { Navbar, NavItem } from 'react-materialize'
+import Signup from './Signup'
+import Login from './Login'
 
 class App extends React.Component {
   constructor(props) {
@@ -18,11 +20,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Title render="Uber Tutor"/>
+      <Title render="Uber Tutor" />
         <Navbar brand="Uber Tutor" left>
-          <NavItem><Link to="/dashboard">Dashboard</Link></NavItem>
+          <NavItem><Link to="/login">Login</Link></NavItem>
           <NavItem><Link to="/about">About</Link></NavItem>
         </Navbar>  
+        <div>
+          <Signup />
+        </div>
       </div>
     )
   }
