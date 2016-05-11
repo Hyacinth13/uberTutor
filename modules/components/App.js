@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import Title from 'react-title-component'
 import { connect } from 'react-redux'
 import { logout, loggedIn } from './actions'
+import { Navbar, NavItem } from 'react-materialize'
 
 class App extends React.Component {
   constructor(props) {
@@ -17,26 +18,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          <li>
-           {this.props.auth ? (
-             <a href="#"
-               onClick={ e => {
-                 {
-                   e.preventDefault()
-                   this.props.dispatch(logout())
-                   this.props.history.push('/login')
-                 }
-               }}
-             >
-              Log out
-             </a>
-           ) : (<Link to="/login">Sign In</Link>)}
-           </li>
-           <li><Link to="/dashboard">Dashboard</Link></li>
-           <li><Link to="/about">About</Link></li>
-        </ul>
-        {this.props.children}
+      <Title render="Uber Tutor"/>
+        <Navbar brand="Uber Tutor" left>
+          <NavItem><Link to="/dashboard">Dashboard</Link></NavItem>
+          <NavItem><Link to="/about">About</Link></NavItem>
+        </Navbar>  
       </div>
     )
   }
