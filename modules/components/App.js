@@ -19,6 +19,7 @@ class App extends React.Component {
 
   render() {
     return (
+
       <div>
       <Title render="Uber Tutor" />
         <Navbar brand="Uber Tutor" left>
@@ -29,6 +30,7 @@ class App extends React.Component {
           <Signup />
         </div>
       </div>
+
     )
   }
 
