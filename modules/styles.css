@@ -1,11 +1,37 @@
 body {
   background: #f0f0f0;
-  font-family: sans-serif;
-  font-weight: 200;
+  font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;
 }
 
 .signup {
   width: 400px;
   height: 625px;
   margin: 10px auto;
+  font-family: 'Ubuntu', sans-serif;
+	font-weight: 500;
+}
+
+header {
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 500;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+ 	color: #4caf50;
+}
+
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #4caf50;
+	box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field label {
+	color: #4caf50;
+}   
+
+h3 {
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 400;
 }

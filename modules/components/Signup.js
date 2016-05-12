@@ -7,8 +7,13 @@ export default class Signup extends React.Component {
     <div>
       <div className="container">
         <div className="row">
+          <div className="col s12 m2">
+            <h3>About</h3>
+            <br />
+            <p> Welcome to UberTutor </p>
+          </div>
           <div className= {signup} >
-            <div className="col s12 m10">
+            <div className="col s12 m10 push-m10">
             <form>
             <div className="input-field"> 
               <input id="first_name" type="text" className="validate" />
@@ -37,16 +42,16 @@ export default class Signup extends React.Component {
               <form action="#">
                 <p>I am a:
                   <br />
-                    <input name="profession" type="radio" id="user" />
-                    <label for="user">User</label>
+                    <input name="title" type="radio" className="green" id="user" />
+                    <label for="user">Student</label>
                   </p>
                   <p>
-                    <input name="profession" type="radio" id="student" />
-                    <label for="student">Student</label>
+                    <input name="title" type="radio" id="student" />
+                    <label for="student">Tutor</label>
                   </p>
               </form>    
-              <a className="waves-effect waves-light btn" a href="/dashboard">Sign Up</a>
-                <p className="login">Already have a profile? <a href="/signin">Sign In.</a></p>
+              <a className="waves-effect waves-green btn green" a href="/dashboard">Sign Up</a>
+                <p className="login">Already have a profile? <a href="/signin" className="green-text">Sign In.</a></p>
               </form> 
             </div>
           </div>
