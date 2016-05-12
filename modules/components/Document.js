@@ -31,9 +31,8 @@ const Document = React.createClass({
           <title>{title}</title>
           <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
           <link rel="stylesheet" href="/vendor/materialize/materialize.css" />
-          <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500' rel='stylesheet' type='text/css'>
+          <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500" rel="stylesheet" type="text/css" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
           {styles}
         </head>
         <body>
@@ -41,18 +40,6 @@ const Document = React.createClass({
           <script dangerouslySetInnerHTML={{ __html: shims }}/>
           <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
           <script type="text/javascript" src="/vendor/materialize/materialize.js"></script>
-          <script type="text/javascript">
-          WebFontConfig = {
-            google: { families: [ 'Ubuntu:300,400,500:latin' ] }
-          };
-          (function() {
-            var wf = document.createElement('script');
-            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-            wf.type = 'text/javascript';
-            wf.async = 'true';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wf, s);
-          })(); </script>
           {scripts}
         </body>
       </html>
