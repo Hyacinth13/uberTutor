@@ -1,5 +1,6 @@
 import React from 'react'
 import { signup } from '../styles.css'
+import img from '../images/11-Coding.jpg'
 
 export default class Signup extends React.Component {
   render() {
@@ -11,6 +12,7 @@ export default class Signup extends React.Component {
             <h3>Tutor with Uber Tutor</h3>
             <br />
             <p> Earn money on your schedule </p>
+            <img src={img} />
           </div>
           <div className= {signup} >
             <div className="col s12 m8 push-m8">

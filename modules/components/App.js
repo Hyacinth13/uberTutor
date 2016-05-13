@@ -33,9 +33,7 @@ class App extends React.Component {
             </div>
           </nav>
         </div>
-              <div>
-                <Signup />
-              </div>
+        {this.props.children}
       </div>
     )
   }
