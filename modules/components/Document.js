@@ -40,6 +40,10 @@ const Document = React.createClass({
           <script dangerouslySetInnerHTML={{ __html: shims }}/>
           <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
           <script type="text/javascript" src="/vendor/materialize/materialize.js"></script>
+          <script src="bower_components/react/react.js"></script>
+          <script src="bower_components/react/JSXTransformer.js"></script>
+          <script src="/socket.io/socket.io.js"></script>
+          <script src="app.js" type="text/jsx"></script>
           {scripts}
         </body>
       </html>

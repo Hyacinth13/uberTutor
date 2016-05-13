@@ -23,6 +23,27 @@ function getApp(req, res, requestCallback) {
   })
 }
 
+// var express = require('express'),
+//   app = express(),
+//   http = require('http').Server(app),
+//   io = require('socket.io')(http);
+
+// // define routes
+// app.use('/', express.static(__dirname + '/public'));
+// app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+
+// // server events
+// io.on('connection', function(socket){
+//   console.log('a user connected');
+//   socket.on('disconnect', function(){
+//     console.log('a user disconnected');
+//   })
+//   socket.on('messageAdded', function(message) {
+//     // io.emit('messageAdded', message); // broadcast to all clients
+//     socket.broadcast.emit('messageAdded', message); // broadcast to all but the sender
+//   })
+// })
+
 const server = createServer(getApp)
 
 server.use( session({ secret: 'secret', resave: false, saveUnitialized: false }))
