@@ -21,20 +21,26 @@ class App extends React.Component {
     return (
 
       <div>
-      <Title render="Uber Tutor" />
-        <Navbar brand="Uber Tutor" className="green" right>
-          <NavItem><Link to="/login">Login</Link></NavItem>
-          <NavItem><Link to="/about">Help</Link></NavItem>
-        </Navbar>  
-        <div>
-          <Signup />
+        <div className="navbar-fixed">
+          <nav>
+            <div className={"black nav-wrapper"}>
+              <a href="#" className="brand-logo white-text accent-3">Uber Tutor</a>
+              <ul id="nav-mobile" className={"right hide-on-med-and-down"}>
+                <NavItem><Link className={"white-text accent-3"} to="/login">Login</Link></NavItem>
+                <NavItem><Link className={"white-text accent-3"} to="/tutor">Find a Tutor</Link></NavItem>
+                <NavItem><Link className={"white-text accent-3"} to="/help">Help</Link></NavItem>
+              </ul>
+            </div>
+          </nav>
         </div>
+              <div>
+                <Signup />
+              </div>
       </div>
-
     )
   }
-
 }
+
 const mapStateToProps = (state) => {
   return { auth: state.auth.isAuthenticated }
 }

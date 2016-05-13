@@ -7,13 +7,13 @@ export default class Signup extends React.Component {
     <div>
       <div className="container">
         <div className="row">
-          <div className="col s12 m2">
-            <h3>About</h3>
+          <div className="col s12 m4">
+            <h3>Tutor with Uber Tutor</h3>
             <br />
-            <p> Welcome to UberTutor </p>
+            <p> Earn money on your schedule </p>
           </div>
           <div className= {signup} >
-            <div className="col s12 m10 push-m10">
+            <div className="col s12 m8 push-m8">
             <form>
             <div className="input-field"> 
               <input id="first_name" type="text" className="validate" />
