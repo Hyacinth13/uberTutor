@@ -1,6 +1,6 @@
 import '../modules/styles.css'
 import React from 'react'
-import { Route } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 import { ServerRoute } from 'react-project'
 import App from './components/App'
 import Login from './components/Login'
@@ -20,6 +20,7 @@ import { push } from 'react-router-redux'
 export default (
   <Route>
     <Route path="/" component={App}>
+      <IndexRoute component={Signup} />
       <Route path="login" component={Login} />
       <Route path="signup" component={Signup} />
     </Route>
