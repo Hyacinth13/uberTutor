@@ -11,6 +11,7 @@
     "no-console": 0,
     "indent": 0,
     "no-debugger": 1,
+    "no-mixed-spaces-and-tabs": 1
   },
   "plugins": [
     "react"
