@@ -5,6 +5,7 @@ import { ServerRoute } from 'react-project'
 import App from './components/App'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
+import Signup from './components/Signup'
 import { signUp, signIn } from './api/auth'
 import { UserAuthWrapper } from 'redux-auth-wrapper'
 import { push } from 'react-router-redux'
@@ -15,6 +16,7 @@ const UserIsAuthenticated = UserAuthWrapper({
  redirectAction: push,
  wrapperDisplayName: 'UserIsAuthenticated'
 })
+
 
 export default (
   <Route>

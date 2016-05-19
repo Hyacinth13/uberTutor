@@ -20,18 +20,18 @@ export default class Login extends React.Component {
 	render() {
   	return (
   		<div>
-  			<div class="container">
-  				<div class="row">
-  					<div class="card-panel">
+  			<div className="container">
+  				<div className="row">
+  					<div className="card-panel">
   						<form onSubmit={this.logIn}>
-  							<div class="input-field">
+  							<div className="input-field">
   								<input ref="email" placeholder="Email" />
   							</div>
-  							<div class="input-field">
+  							<div className="input-field">
   								<input ref="password" type="password" placeholder="Password" />
   							</div>
-  							<a class="waves-effect waves-light btn" a href="/dashboard">Sign In</a>
-  							<p class="login">Don't have a login? <a href="/signup">Sign Up</a></p>
+  							<button className="waves-effect waves-light btn">Sign In</button>
+  							<p className="login">Don't have a login?<a href="/signup">Sign Up</a></p>
   						</form> 
   					</div>
   				</div>

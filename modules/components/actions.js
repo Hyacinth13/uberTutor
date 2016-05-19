@@ -8,12 +8,14 @@ export const login = (email, pass, redirect, history) => {
       contentType: 'application/json',
       data: JSON.stringify({ email: email, password: pass })
     }).done( res => {
+      debugger
       const token = getToken()
       sessionStorage.token = token
       sessionStorage.userId = res.id
       dispatch(loggedIn(res.id, token))
       history.push(redirect)
     }).fail( res => {
+      debugger
       sessionStorage.clear()
       dispatch(logout())
     })

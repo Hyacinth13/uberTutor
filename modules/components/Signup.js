@@ -2,6 +2,7 @@ import React from 'react'
 import { signup } from '../styles.css'
 import { signUp } from './actions'
 import { connect } from 'react-redux'
+import img from '../images/coder9.jpg'
 
 
 export default class Signup extends React.Component {
@@ -26,8 +27,7 @@ export default class Signup extends React.Component {
   const password = this.refs.password.value
   const phoneNumber = this.refs.phoneNumber.value
   const userType = this.state.userType.value
-
-  this.props.dispatch(signUp(email, displayName, password, phoneNumber))
+  this.props.dispatch(signUp(email, password, displayName, phoneNumber, '/dashboard', this.props.history, userType))
 }
 
   render() {
@@ -39,11 +39,11 @@ export default class Signup extends React.Component {
             <h3>Tutor with Uber Tutor</h3>
             <br />
             <p> Earn money on your schedule </p>
-            <img src={img} />
+           <img src={img} />
           </div>
           <div className={signup} >
             <div className="col s12 m10 push-m10">
-            <form onSubmit={signUp}>
+            <form onSubmit={this.signUp}>
               <div className="input-field"> 
                 <input ref="displayName" type="text" placeholder="Display Name " />
               </div>
@@ -62,7 +62,7 @@ export default class Signup extends React.Component {
                 <option value="tutor">Tutor</option>
               </select>
               <br />   
-              <a className="waves-effect waves-green btn green" a href="/dashboard">Sign Up</a>
+              <button className="waves-effect waves-green btn green">Sign Up</button>
               <p className="login">Already have a profile? <a href="/login" className="green-text">Sign In.</a></p>
             </form> 
             </div>
