@@ -35,3 +35,16 @@ h3 {
 	font-family: 'Ubuntu', sans-serif;
 	font-weight: 400;
 }
+
+.homeimg {
+  background: url(./images/computers.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.smallIcon {
+  font-size: 20px !important;
+}
+
+.green50 {
+  color: #4caf50 !important;
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import { login } from './actions'
 import { connect } from 'react-redux'
+import { Button, Icon } from 'react-materialize'
+import { smallIcon, green50 } from '../styles.css'
 
 export default class Login extends React.Component {
 	constructor(props) {
@@ -20,22 +22,21 @@ export default class Login extends React.Component {
 	render() {
   	return (
   		<div>
-  			<div className="container">
-  				<div className="row">
-  					<div className="card-panel">
-  						<form onSubmit={this.logIn}>
-  							<div className="input-field">
-  								<input ref="email" placeholder="Email" />
-  							</div>
-  							<div className="input-field">
-  								<input ref="password" type="password" placeholder="Password" />
-  							</div>
-  							<button className="waves-effect waves-light btn">Sign In</button>
-  							<p className="login">Don't have a login?<a href="/signup">Sign Up</a></p>
-  						</form> 
-  					</div>
-  				</div>
-  			</div>
+        <div className="row">
+  				<form className="col s12" onSubmit={this.logIn}>
+            <div className="row">
+    					<div className="input-field col s4 pull-s2">
+    						<i className={`${smallIcon} ${green50} material-icons prefix`}>account_circle</i>
+                <input ref="email" type="email" placeholder="Email" />
+    					</div>
+    					<div className="input-field col s4 pull-s1">
+                <i className={`${smallIcon} ${green50} material-icons prefix`}>vpn_key</i>
+    						<input ref="password" type="password" placeholder="Password" />
+    					</div>
+    					<button className="waves-effect waves-green btn green">Log in</button>
+    				</div> 
+          </form>
+        </div>
   		</div>
    	) 
   }

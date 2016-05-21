@@ -6,6 +6,7 @@ import { logout, loggedIn } from './actions'
 import { Navbar, NavItem } from 'react-materialize'
 import Signup from './Signup'
 import Login from './Login'
+import { Button, Icon } from 'react-materialize'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,21 +20,19 @@ class App extends React.Component {
 
   render() {
     return (
-
       <div>
         <div className="navbar-fixed">
           <nav>
             <div className={"black nav-wrapper"}>
               <a href="#" className="brand-logo white-text accent-3">Uber Tutor</a>
+              <a href="/Login" data-activates="mobile-demo" button className="button-collapse waves-effect btn green">Log In</a>
               <ul id="nav-mobile" className={"right hide-on-med-and-down"}>
-                <NavItem><Link className={"white-text accent-3"} to="/login">Login</Link></NavItem>
-                <NavItem><Link className={"white-text accent-3"} to="/tutor">Find a Tutor</Link></NavItem>
-                <NavItem><Link className={"white-text accent-3"} to="/help">Help</Link></NavItem>
+                <Login />
               </ul>
             </div>
           </nav>
         </div>
-        {this.props.children}
+      {this.props.children}
       </div>
     )
   }
