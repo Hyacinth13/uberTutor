@@ -43,8 +43,27 @@ h3 {
 
 .smallIcon {
   font-size: 20px !important;
+  padding: 0px 15px 15px 15px;
 }
 
 .green50 {
   color: #4caf50 !important;
+}
+
+.mobilelog {
+  padding: 10px 5px 5px 5px;
+  margin: 0px 5px 5px 0px;
+  font-size: 15px;
+}
+
+.logbutton {
+  margin: 5px 5px 10px 15px !important;
+  left: 11px !important;
+  font-size: 13px;
+  width: 60px;
+  padding: 0px;
+}
+
+.logfield {
+  font-size: 10pt !important;
 }

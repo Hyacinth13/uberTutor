@@ -7,6 +7,7 @@ import { Navbar, NavItem } from 'react-materialize'
 import Signup from './Signup'
 import Login from './Login'
 import { Button, Icon } from 'react-materialize'
+import { mobilelog } from '../styles.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends React.Component {
           <nav>
             <div className={"black nav-wrapper"}>
               <a href="#" className="brand-logo white-text accent-3">Uber Tutor</a>
-              <a href="/Login" data-activates="mobile-demo" button className="button-collapse waves-effect btn green">Log In</a>
+              <a href="/Login" data-activates="mobile-demo" className={`${mobilelog} button-collapse waves-effect btn green`}>Log In</a>
               <ul id="nav-mobile" className={"right hide-on-med-and-down"}>
                 <Login />
               </ul>

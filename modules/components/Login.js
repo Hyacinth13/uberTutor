@@ -2,7 +2,7 @@ import React from 'react'
 import { login } from './actions'
 import { connect } from 'react-redux'
 import { Button, Icon } from 'react-materialize'
-import { smallIcon, green50 } from '../styles.css'
+import { smallIcon, green50, logbutton, logfield } from '../styles.css'
 
 export default class Login extends React.Component {
 	constructor(props) {
@@ -25,15 +25,15 @@ export default class Login extends React.Component {
         <div className="row">
   				<form className="col s12" onSubmit={this.logIn}>
             <div className="row">
-    					<div className="input-field col s4 pull-s2">
+    					<div className="input-field col s4">
     						<i className={`${smallIcon} ${green50} material-icons prefix`}>account_circle</i>
-                <input ref="email" type="email" placeholder="Email" />
+                <input ref="email" type="email" placeholder="Email" className={`${logfield}`} />
     					</div>
-    					<div className="input-field col s4 pull-s1">
+    					<div className="input-field col s4">
                 <i className={`${smallIcon} ${green50} material-icons prefix`}>vpn_key</i>
-    						<input ref="password" type="password" placeholder="Password" />
+    						<input ref="password" type="password" placeholder="Password" className={`${logfield}`} />
     					</div>
-    					<button className="waves-effect waves-green btn green">Log in</button>
+    					<button className={`${logbutton} waves-effect waves-green btn green`}>Log in</button>
     				</div> 
           </form>
         </div>
