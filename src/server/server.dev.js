@@ -1,5 +1,6 @@
 import express from 'express'
 import path from 'path'
+import morgan from 'morgan'
 
 import mongoose from 'mongoose'
 
@@ -20,6 +21,7 @@ import passport from 'passport'
 require('../../config/passport')(passport)
 import SocketIo from 'socket.io'
 const app = express()
+app.use(morgan('combined'))
 //set env vars
 process.env.MONGOLAB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/chat_dev'
 process.env.PORT = process.env.PORT || 3000

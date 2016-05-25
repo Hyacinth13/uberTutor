@@ -6,7 +6,8 @@ import bodyparser from 'body-parser'
 module.exports = function loadUserRoutes(router, passport) {
   router.use(bodyparser.json());
 
-  router.post('/sign_up', passport.authenticate('local-signup', { session: false}), function(req, res) {
+  //router.post('/sign_up', passport.authenticate('local-signup', { session: false}), function(req, res) {
+  router.post('/sign_up', function(req, res) {  
     User.register(new User({ username : req.body.email, phoneNumber: req.body.phone, userType: req.body.type }), req.body.password, function (err, user) {
     if (err) {
       return res.status(500).json(err.message)
