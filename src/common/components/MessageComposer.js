@@ -71,8 +71,8 @@ export default class MessageComposer extends Component {
           autoFocus="true"
           placeholder="Type here to chat!"
           value={this.state.text}
-          onChange={::this.handleChange}
-          onKeyDown={::this.handleSubmit}
+          onChange={this.handleChange}
+          onKeyDown={this.handleSubmit}
         />
       </div>
     )

@@ -103,13 +103,13 @@ export default class Chat extends Component {
     const dropDownMenu = (
       <div style={{'width': '21rem', 'top': '0', alignSelf: 'baseline', padding: '0', margin: '0', order: '1'}}>
         <DropdownButton key={1} style={{'width': '21rem'}} id="user-menu"  bsSize="large" bsStyle="primary" title={username}>
-          <MenuItem style={{'width': '21rem'}} eventKey="4" onSelect={::this.handleSignOut}>Sign out</MenuItem>
+          <MenuItem style={{'width': '21rem'}} eventKey="4" onSelect={this.handleSignOut}>Sign out</MenuItem>
         </DropdownButton>
       </div>
     )
     const PrivateMessageModal = (
       <div>
-        <Modal bsSize="small" key={1} show={this.state.privateChannelModal} onHide={::this.closePrivateChannelModal}>
+        <Modal bsSize="small" key={1} show={this.state.privateChannelModal} onHide={this.closePrivateChannelModal}>
         <Modal.Header>
           {this.state.targetedUser.username}
         </Modal.Header>
@@ -131,10 +131,10 @@ export default class Chat extends Component {
           <span style={{fontSize: '2em'}}>{username}</span>
           <Navbar.Toggle />
         <Navbar.Collapse style={{maxHeight: '100%'}}>
-          <Button bsStyle="primary" onSelect={::this.handleSignOut}> Sign out
+          <Button bsStyle="primary" onSelect={this.handleSignOut}> Sign out
           </Button>
           <section style={{order: '2', marginTop: '1.5em'}}>
-            <Channels socket={socket} onClick={::this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
+            <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
           </section>
         </Navbar.Collapse>
       </Navbar>
@@ -143,7 +143,7 @@ export default class Chat extends Component {
       <div className="nav">
         {dropDownMenu}
         <section style={{order: '2', marginTop: '1.5em'}}>
-          <Channels socket={socket} onClick={::this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
+          <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
         </section>
       </div>
     )
@@ -159,10 +159,10 @@ export default class Chat extends Component {
           {PrivateMessageModal}
           <ul style={{wordWrap: 'break-word', margin: '0', overflowY: 'auto', padding: '0', paddingBottom: '1em', flexGrow: '1', order: '1'}} ref="messageList">
             {filteredMessages.map(message =>
-              <MessageListItem handleClickOnUser={::this.handleClickOnUser} message={message} key={message.id} />
+              <MessageListItem handleClickOnUser={this.handleClickOnUser} message={message} key={message.id} />
             )}
           </ul>
-          <MessageComposer socket={socket} activeChannel={activeChannel} user={user} onSave={::this.handleSave} />
+          <MessageComposer socket={socket} activeChannel={activeChannel} user={user} onSave={this.handleSave} />
         </div>
         <footer style={{fontSize: '1em', position: 'fixed', bottom: '0.2em', left: '21.5rem', color: '#000000', width: '100%', opacity: '0.5'}}>
           {typers.length === 1 &&
