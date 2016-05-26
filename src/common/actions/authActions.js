@@ -7,16 +7,14 @@ import cookie from 'react-cookie'
 export const login = (email, pass, redirect, history) => {
   return (dispatch) => {
     $.ajax({
-      url: '/api/signin',
+      url: '/api/sign_in',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ email: email, password: pass })
     }).done( res => {
-      const token = getToken()
-      sessionStorage.token = token
-      sessionStorage.userId = res.id
-      dispatch(loggedIn(res.id, token))
-      history.push(redirect)
+      cookie.save('username', res.username)
+          dispatch(receiveSignIn(res.username))
+          browserHistory.push('/dashboard')
     }).fail( res => {
       sessionStorage.clear()
       dispatch(logout())
@@ -33,9 +31,9 @@ export const signUp = (email, pass, displayName, phoneNumber, redirect, history,
       data: JSON.stringify({ email: email, password: pass, displayName: displayName, 
         phoneNumber: phoneNumber, userType: userType })
     }).done( res => {
-      cookie.save('username', user.username)
-      dispatch(receiveUser(user.username))
-      browserHistory.push('/dasboard')
+      cookie.save('username', res.username)
+      dispatch(receiveUser(res.username))
+      browserHistory.push('/dashboard')
     }).fail( res => {
       dispatch(logout())
     })
@@ -141,24 +139,3 @@ function receiveSignIn(username) {
     user
   }
 }
-
-export function signIn(user) {
-  return dispatch => {
-    dispatch(requestSignIn())
-     return fetch('/api/sign_in', {
-      method: 'post',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-      })
-      .then(response => {
-        if(response.ok) {
-          cookie.save('username', user.username)
-          dispatch(receiveSignIn(user.username))
-          browserHistory.push('/chat')
-        }
-      })
-      .catch(error => {throw error})
-  }
-}
-

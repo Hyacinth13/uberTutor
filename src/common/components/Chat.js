@@ -131,8 +131,6 @@ export default class Chat extends Component {
           <span style={{fontSize: '2em'}}>{username}</span>
           <Navbar.Toggle />
         <Navbar.Collapse style={{maxHeight: '100%'}}>
-          <Button bsStyle="primary" onSelect={this.handleSignOut}> Sign out
-          </Button>
           <section style={{order: '2', marginTop: '1.5em'}}>
             <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
           </section>
@@ -190,3 +188,5 @@ export default class Chat extends Component {
     )
   }
 }
+
+//<Button bsStyle="primary" onSelect={this.handleSignOut}> Sign out </Button>

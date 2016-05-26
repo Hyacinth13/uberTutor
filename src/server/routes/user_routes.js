@@ -7,16 +7,17 @@ module.exports = function loadUserRoutes(router, passport) {
   router.use(bodyparser.json());
 
   //router.post('/sign_up', passport.authenticate('local-signup', { session: false}), function(req, res) {
+  
   router.post('/sign_up', function(req, res) {  
     User.register(new User({ username : req.body.email, phoneNumber: req.body.phone, userType: req.body.type }), req.body.password, function (err, user) {
     if (err) {
       return res.status(500).json(err.message)
     }
-    return res.json({ authenticated: true, id: user._id })
+    return res.json(user)
   })
 })
 
-  router.post('/sign_in', passport.authenticate('local-login', { session: false}), function(req, res) {
+  router.post('/sign_in', function(req, res) {
     User.findOne({ username: req.body.email }, function (err, user) {
     if (err)
       return res.json(500, err.message)
@@ -27,7 +28,7 @@ module.exports = function loadUserRoutes(router, passport) {
         return res.json(500, err)
       if (passwordErr)
         return res.json(500, passwordErr.message)
-      return res.json({ authenticated: true, id: user._id })
+      return res.json(user)
     })
   })
   });
