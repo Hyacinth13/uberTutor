@@ -24,6 +24,11 @@ export default class Chat extends Component {
       privateChannelModal: false,
       targetedUser: ''
     }
+    this.handleSave = this.handleSave.bind(this)
+    this.changeActiveChannel = this.changeActiveChannel.bind(this)
+    this.handleClickOnUser = this.handleClickOnUser.bind(this)
+    this.closePrivateChannelModal = this.closePrivateChannelModal.bind(this)
+    this.handleSendDirectMessage = this.handleSendDirectMessage.bind(this)
   }
   componentDidMount() {
     const { socket, user, dispatch } = this.props
@@ -56,10 +61,6 @@ export default class Chat extends Component {
     if (newMessage.text.length !== 0) {
       dispatch(actions.createMessage(newMessage))
     }
-  }
-  handleSignOut() {
-    const { dispatch } = this.props
-    dispatch(authActions.signOut())
   }
   changeActiveChannel(channel) {
     const { socket, activeChannel, dispatch } = this.props
@@ -99,9 +100,9 @@ export default class Chat extends Component {
   render() {
     const { messages, socket, channels, activeChannel, typers, dispatch, user, screenWidth} = this.props
     const filteredMessages = messages.filter(message => message.channelID === activeChannel)
-    const username = this.props.user.username
+    const username = this.props.user.username || ''
     const dropDownMenu = (
-      <div style={{'width': '21rem', 'top': '0', alignSelf: 'baseline', padding: '0', margin: '0', order: '1'}}>
+      <div style={{'width': '1rem', 'top': '0', alignSelf: 'baseline', padding: '0', margin: '0', order: '1'}}>
         <DropdownButton key={1} style={{'width': '21rem'}} id="user-menu"  bsSize="large" bsStyle="primary" title={username}>
           <MenuItem style={{'width': '21rem'}} eventKey="4" onSelect={this.handleSignOut}>Sign out</MenuItem>
         </DropdownButton>
@@ -126,28 +127,8 @@ export default class Chat extends Component {
         </Modal>
       </div>
     )
-    const mobileNav = (
-      <Navbar fixedTop style={{background: '#337ab7', color: 'white'}}>
-          <span style={{fontSize: '2em'}}>{username}</span>
-          <Navbar.Toggle />
-        <Navbar.Collapse style={{maxHeight: '100%'}}>
-          <section style={{order: '2', marginTop: '1.5em'}}>
-            <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
-          </section>
-        </Navbar.Collapse>
-      </Navbar>
-    )
-    const bigNav = (
-      <div className="nav">
-        {dropDownMenu}
-        <section style={{order: '2', marginTop: '1.5em'}}>
-          <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
-        </section>
-      </div>
-    )
     return (
-      <div style={{margin: '0', padding: '0', height: '100%', width: '100%', display: '-webkit-box'}}>
-        {screenWidth < 500 ? mobileNav : bigNav }
+      <div>
         <div className="main">
           <header style={{background: '#FFFFFF', color: 'black', flexGrow: '0', order: '0', fontSize: '2.3em', paddingLeft: '0.2em'}}>
             <div>

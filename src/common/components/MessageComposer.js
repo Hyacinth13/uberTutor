@@ -17,15 +17,17 @@ export default class MessageComposer extends Component {
       text: '',
       typing: false
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
   handleSubmit(event) {
-    const { user, socket, activeChannel} = this.props
+    const { socket, activeChannel, user } = this.props
     const text = event.target.value.trim()
     if (event.which === 13) {
       event.preventDefault()
       var newMessage = {
         id: `${Date.now()}${uuid.v4()}`,
-        channelID: this.props.activeChannel,
+        channelID: activeChannel,
         text: text,
         user: user,
         time: moment.utc().format('lll')
