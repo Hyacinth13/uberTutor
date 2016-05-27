@@ -3,7 +3,6 @@ import path from 'path'
 import morgan from 'morgan'
 
 import mongoose from 'mongoose'
-
 import { renderToString } from 'react-dom/server'
 import { Provider } from 'react-redux'
 import React from 'react'

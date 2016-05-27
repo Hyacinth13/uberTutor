@@ -27,27 +27,26 @@ class App extends Component {
                 
 
   render() {
-    let link = cookie.load('username') ? (<Link className={"white-text accent-3"} to={this.handleSignOut}>Sign Out</Link>) : (    <Link className={"white-text accent-3"} to="/login">Login</Link>)
+    let link = cookie.load('username') ? (<Link className={"white-text accent-3"} to={this.handleSignOut}>Sign Out</Link>) : (<Link className={"white-text accent-3"} to="/login">Login</Link>)
     return (
-
       <div>
         <div className="navbar-fixed">
           <nav>
             <div className={"black nav-wrapper"}>
               <a href="#" className="brand-logo white-text accent-3">Uber Tutor</a>
+              <a href="/Login" data-activates="mobile-demo" className='mobilelog button-collapse waves-effect btn green'>Log In</a>
               <ul id="nav-mobile" className={"right hide-on-med-and-down"}>
+                <Login />
                 {link}
-                <NavItem><Link className={"white-text accent-3"} to="/tutor">Find a Tutor</Link></NavItem>
-                <NavItem><Link className={"white-text accent-3"} to="/help">Help</Link></NavItem>
               </ul>
             </div>
           </nav>
         </div>
-        {this.props.children}
+      {this.props.children}
       </div>
     )
   }
-}
+  }
 
 const mapStateToProps = (state) => {
   return { auth: state.auth.isAuthenticated }
