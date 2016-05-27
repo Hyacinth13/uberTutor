@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { signUp } from '../actions/authActions'
 import { connect } from 'react-redux'
+<<<<<<< 75b4e1dcf6b894cdad0b2e2f773fc9b9f200706e
 import { Button, Icon } from 'react-materialize'
 import { homeimg } from '../css/chatapp.css'
+=======
+>>>>>>> troubleshooting style/server issue
 
 export default class Signup extends React.Component {
   constructor(props) {
