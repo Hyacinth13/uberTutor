@@ -1,8 +1,9 @@
 To setup:
-npm install
-npm install morgan --save
+1) npm install
+2) npm install morgan --save
 
 To run server in the terminal:
-npm run dev
-mongod
-1) mongo 2) use chat_dev
+1) npm run dev
+2) mongod
+3) mongo 
+4) use chat_dev
