@@ -114,10 +114,11 @@ function renderFullPage(html, initialState) {
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500" rel="stylesheet" type="text/css" />
         <link rel="icon" href="./favicon.ico" type="image/x-icon" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-        <title>React Redux Socket.io Chat</title>
+        <title>Super Tutor</title>
       </head>
       <body>
         <container id="react">${html}</container>
