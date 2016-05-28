@@ -33,7 +33,7 @@ class App extends Component {
         <div className="navbar-fixed">
           <nav>
             <div className={"black nav-wrapper"}>
-              <a href="#" className="brand-logo white-text accent-3">Uber Tutor</a>
+              <a href="#" className="brand-logo white-text accent-3">Super Tutor</a>
               <a href="/Login" data-activates="mobile-demo" className='mobilelog button-collapse waves-effect btn green'>Log In</a>
               <ul id="nav-mobile" className={"right hide-on-med-and-down"}>
                 <Login />
