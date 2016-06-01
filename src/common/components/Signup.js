@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { signUp } from '../actions/authActions'
 import { connect } from 'react-redux'
 import { Button, Icon } from 'react-materialize'
+import { homeimg } from '../css/chatapp.css'
+import Login from './Login'
 
 export default class Signup extends React.Component {
   constructor(props) {

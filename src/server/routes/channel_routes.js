@@ -10,7 +10,7 @@ module.exports = function(router) {
     Channel.find({},{name: 1, id:1, _id:0}, function(err, data) {
       if(err) {
         console.log(err)
-        return res.status(500).json({msg: 'internal server error'})
+        return res.status(500).json({msg: 'CHANNELS internal server error'})
       }
 
       res.json(data)

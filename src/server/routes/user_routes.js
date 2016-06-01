@@ -34,23 +34,24 @@ module.exports = function loadUserRoutes(router, passport) {
   });
 
   router.get('/signout', function(req, res) {
-    req.logout();
-    res.end();
-  });
+    req.logout()
+    res.end()
+    cookie.remove('username')
+  })
 
   //get auth credentials from server
   router.get('/load_auth_into_state', function(req, res) {
-    res.json(req.user);
-  });
+    res.json(req.user)
+  })
 
   // get usernames for validating whether a username is available
   router.get('/all_usernames', function(req, res) {
     User.find({'local.username': { $exists: true } }, {'local.username': 1, _id:0}, function(err, data) {
       if(err) {
-        console.log(err);
-        return res.status(500).json({msg: 'internal server error'});
+        console.log(err)
+        return res.status(500).json({msg: 'internal server error'})
       }
-      res.json(data);
-    });
+      res.json(data)
+    })
   })
-};
+}

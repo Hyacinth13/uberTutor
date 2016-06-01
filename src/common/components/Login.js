@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { login, } from '../actions/authActions'
+import { login } from '../actions/authActions'
 import { connect } from 'react-redux'
 
 export default class Login extends React.Component {
@@ -15,6 +15,8 @@ export default class Login extends React.Component {
 		const email = this.refs.email.value
 		const password = this.refs.password.value
 		this.props.dispatch(login(email, password, this.state.redirectRoute, this.props.history))
+    this.refs.email.value = ''
+    this.refs.password.value = ''
 	}
 
 render() {

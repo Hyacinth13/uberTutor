@@ -20,6 +20,15 @@ export default class Channels extends Component {
       channelName: '',
       moreChannelsModal: false
     }
+    this.handleChangeChannel = this.handleChangeChannel.bind(this)
+    this.openAddChannelModal = this.openAddChannelModal.bind(this)
+    this.closeAddChannelModal = this.closeAddChannelModal.bind(this)
+    this.handleModalChange = this.handleModalChange.bind(this)
+    this.handleModalSubmit = this.handleModalSubmit.bind(this)
+    this.validateChannelName = this.validateChannelName.bind(this)
+    this.openMoreChannelsModal = this.openMoreChannelsModal.bind(this)
+    this.closeMoreChannelsModal = this.closeMoreChannelsModal.bind(this)
+    this.createChannelWithinModal = this.createChannelWithinModal.bind(this)
   }
   handleChangeChannel(channel) {
     if(this.state.moreChannelsModal) {
@@ -27,11 +36,11 @@ export default class Channels extends Component {
     }
     this.props.onClick(channel)
   }
-  openAddChannelModal() {
+  openAddChannelModal(event) {
     event.preventDefault()
     this.setState({addChannelModal: true})
   }
-  closeAddChannelModal() {
+  closeAddChannelModal(event) {
     event.preventDefault()
     this.setState({addChannelModal: false})
   }

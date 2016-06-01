@@ -129,6 +129,12 @@ export default class Chat extends Component {
     )
     return (
       <div>
+        <div className="nav">
+          {dropDownMenu}
+          <section style={{order: '2', marginTop: '1.5em'}}>
+            <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
+          </section>
+        </div>
         <div className="main">
           <header style={{background: '#FFFFFF', color: 'black', flexGrow: '0', order: '0', fontSize: '2.3em', paddingLeft: '0.2em'}}>
             <div>

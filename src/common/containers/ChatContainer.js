@@ -21,7 +21,7 @@ class ChatContainer extends Component {
   render() {
     return (
       <Chat {...this.props} socket={socket} />
-    );
+    )
   }
 }
 ChatContainer.propTypes = {

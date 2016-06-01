@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ChatContainer from '../containers/ChatContainer'
-import Chat from './Chat'
+import { Link } from 'react-router'
+import { checkAuth, signOut, loggedIn } from '../actions/authActions'
+import { Navbar, NavItem } from 'react-materialize'
+import Signup from './Signup'
+import Login from './Login'
+import cookie from 'react-cookie'
+import Channels from './Channels'
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -14,7 +20,9 @@ export default class Dashboard extends Component {
       <div>
         <h2>Welcome</h2>
         <div>
-          <ChatContainer/>
+          <div className="container">
+            <ChatContainer {...this.props} />
+          </div>
         </div>
       </div>
     )
