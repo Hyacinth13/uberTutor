@@ -25,9 +25,17 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h2>Welcome</h2>
+        <div className="navbar-fixed">
+          <nav>
+            <div className={"black nav-wrapper"}>
+              <a href="#" className="brand-logo white-text accent-3">Super Tutor</a>
+              <a href="/Login" data-activates="mobile-demo" className='mobilelog button-collapse waves-effect btn green'>Log In</a>
+            </div>
+          </nav>
+        </div>
+        <h3>Welcome, our tutors are ready to assist you!</h3>
         <div>
-          <div className="container">
+          <div>
             <ChatContainer {...this.props} />
           </div>
         </div>

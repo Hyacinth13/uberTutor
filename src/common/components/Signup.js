@@ -33,10 +33,23 @@ export default class Signup extends React.Component {
 render() {
     return(
     <div>
+      <div className="backgroundimg">
+      <div className="navbar-fixed">
+          <nav>
+            <div className={"black nav-wrapper"}>
+              <a href="#" className="brand-logo white-text accent-3">Super Tutor</a>
+              <a href="/Login" data-activates="mobile-demo" className='mobilelog button-collapse waves-effect btn green'>Log In</a>
+              <ul id="nav-mobile" className={"right hide-on-med-and-down"}>
+              <Login />
+              </ul>
+            </div>
+          </nav>
+        </div>
       <div>
         <div className="container">
           <div className="row">
             <div className="col s12 m7">
+              <br />
               <h4 className="black-text center-align">Connect with tutors anywhere.</h4>
               <br />
             </div>
@@ -76,6 +89,7 @@ render() {
             </div> 
           </div>
         </div>
+      </div>
       </div>
     </div>
     )

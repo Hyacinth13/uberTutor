@@ -110,7 +110,7 @@ export default class Chat extends Component {
     const username = this.props.user.username || ''
     const dropDownMenu = (
       <div style={{'width': '21rem', 'top': '0', alignSelf: 'baseline', padding: '0', margin: '0', order: '1'}}>
-        <DropdownButton key={1} style={{'width': '21rem'}} id="user-menu"  bsSize="large" bsStyle="primary" title={username}>
+        <DropdownButton className="bg-green50" key={1} style={{'width': '21rem'}} id="user-menu"  bsSize="large" bsStyle="primary" title={username}>
           <MenuItem style={{'width': '21rem'}} eventKey="4" onSelect={this.handleSignOut}>Sign out</MenuItem>
         </DropdownButton>
       </div>
@@ -155,30 +155,35 @@ export default class Chat extends Component {
         </section>
       </div>
     );
-    let backToLobby = activeChannel === 'Lobby' ? null : <button onClick={this.lobby} className="btn">Back To Lobby</button>
+    let backToLobby = activeChannel === 'Lobby' ? null : (<div className="bg-green50, center"><button onClick={this.lobby} className="btn center">Back To Lobby</button></div>)
     return (
       <div>
+        {dropDownMenu}
+        {backToLobby}
         <div className="nav">
-          {dropDownMenu}
-          {backToLobby}
-          <section style={{order: '2', marginTop: '1.5em'}}>
-            <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
-          </section>
-        </div>
-        {PrivateMessageModal}
-        <div className="main">
-          <header style={{background: '#FFFFFF', color: 'black', flexGrow: '0', order: '0', fontSize: '2.3em', paddingLeft: '0.2em'}}>
-            <div>
-            {activeChannel}
-            </div>
-          </header>
           
-          <ul style={{wordWrap: 'break-word', margin: '0', overflowY: 'auto', padding: '0', paddingBottom: '1em', flexGrow: '1', order: '1'}} ref="messageList">
-            {filteredMessages.map(message =>
-              <MessageListItem handleClickOnUser={this.handleClickOnUser} message={message} key={message.id} />
-            )}
-          </ul>
-          <MessageComposer socket={socket} activeChannel={activeChannel} user={user} onSave={this.handleSave} />
+          
+          <div className="row">
+            <div className="col s4 m3">
+              <section style={{order: '2', marginTop: '1.5em'}}>
+                <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
+              </section>
+            </div>
+            <div className="main col s8 m9">
+              <header style={{background: '#FFFFFF', color: 'black', flexGrow: '0', order: '0', fontSize: '2.3em', paddingLeft: '0.2em', width: '50em'}}>
+                <div>
+                {activeChannel}
+                </div>
+              </header>
+              
+              <ul style={{wordWrap: 'break-word', margin: '0', overflowY: 'auto', padding: '0', paddingBottom: '1em', flexGrow: '1', order: '1'}} ref="messageList">
+                {filteredMessages.map(message =>
+                  <MessageListItem handleClickOnUser={this.handleClickOnUser} message={message} key={message.id} />
+                )}
+              </ul>
+              <MessageComposer socket={socket} activeChannel={activeChannel} user={user} onSave={this.handleSave} />
+            </div>
+          </div>
         </div>
         <footer style={{fontSize: '1em', position: 'fixed', bottom: '0.2em', left: '21.5rem', color: '#000000', width: '100%', opacity: '0.5'}}>
           {typers.length === 1 &&

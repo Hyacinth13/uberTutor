@@ -150,7 +150,7 @@ export default class Channels extends Component {
     return (
       <section>
         <div>
-          <span style={{paddingLeft: '0.8em', fontSize: '1.5em'}}>
+          <span style={{paddingLeft: '0.8em', fontSize: '2.3em', color: 'white'}}>
             Channels
             <button onClick={this.openAddChannelModal} style={{fontSize: '0.8em', 'background': 'Transparent', marginLeft: '2.8em', 'backgroundRepeat': 'noRepeat', 'border': 'none', 'cursor': 'pointer', 'overflow': 'hidden', 'outline': 'none'}}>
               <Glyphicon glyph="plus" />
