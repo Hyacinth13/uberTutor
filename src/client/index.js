@@ -1,4 +1,5 @@
-import '../common/css/chatapp.css';
+//import '../common/css/styles.css';
+import '../common/css/bootstrap_overrides.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';

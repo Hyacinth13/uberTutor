@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ChatContainer from '../containers/ChatContainer'
 import { Link } from 'react-router'
-import { checkAuth, signOut, loggedIn } from '../actions/authActions'
+import { checkAuth, signOut, loggedIn, receiveSignIn } from '../actions/authActions'
 import { Navbar, NavItem } from 'react-materialize'
 import Signup from './Signup'
 import Login from './Login'
@@ -13,6 +13,13 @@ export default class Dashboard extends Component {
   constructor(props) {
     super(props)
 
+  }
+
+  componentWillMount() {
+    if (!this.props.user || this.props.user.id === 0) {
+      let userName = cookie.load('username')
+      this.props.dispatch(receiveSignIn(userName))
+    }
   }
 
   render() {

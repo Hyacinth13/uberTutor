@@ -70,46 +70,53 @@ export default class Chat extends Component {
     dispatch(actions.fetchMessages(channel.name))
   }
   handleClickOnUser(user) {
-    this.setState({ privateChannelModal: true, targetedUser: user })
+    this.setState({ privateChannelModal: false, targetedUser: user })
+    this.handleSendDirectMessage(user)
   }
   closePrivateChannelModal() {
     event.preventDefault()
     this.setState({privateChannelModal: false})
   }
-  handleSendDirectMessage() {
+  handleSendDirectMessage(targetUser = "") {
     const { dispatch, socket, channels, user } = this.props
+    let messageUser = targetUser === "" ? this.state.targetedUser : targetUser
     const doesPrivateChannelExist = channels.filter(item => {
-      return item.name === (`${this.state.targetedUser.username}+${user.username}` || `${user.username}+${this.state.targetedUser.username}`)
+      return item.name === (`${messageUser.username}+${user.username}` || `${user.username}+${messageUser.username}`)
     })
-    if (user.username !== this.state.targetedUser.username && doesPrivateChannelExist.length === 0) {
+    if (user.username !== messageUser.username && doesPrivateChannelExist.length === 0) {
       const newChannel = {
-        name: `${this.state.targetedUser.username}+${user.username}`,
+        name: `${messageUser.username}+${user.username}`,
         id: Date.now(),
         private: true,
-        between: [this.state.targetedUser.username, user.username]
+        between: [messageUser.username, user.username]
       }
       dispatch(actions.createChannel(newChannel))
       this.changeActiveChannel(newChannel)
-      socket.emit('new private channel', this.state.targetedUser.socketID, newChannel)
+      socket.emit('new private channel', messageUser.socketID, newChannel)
     }
     if(doesPrivateChannelExist.length > 0) {
       this.changeActiveChannel(doesPrivateChannelExist[0])
     }
     this.setState({ privateChannelModal: false, targetedUser: '' })
   }
+
+  lobby() {
+    window.location.reload()
+  }
+
   render() {
     const { messages, socket, channels, activeChannel, typers, dispatch, user, screenWidth} = this.props
     const filteredMessages = messages.filter(message => message.channelID === activeChannel)
     const username = this.props.user.username || ''
     const dropDownMenu = (
-      <div style={{'width': '1rem', 'top': '0', alignSelf: 'baseline', padding: '0', margin: '0', order: '1'}}>
+      <div style={{'width': '21rem', 'top': '0', alignSelf: 'baseline', padding: '0', margin: '0', order: '1'}}>
         <DropdownButton key={1} style={{'width': '21rem'}} id="user-menu"  bsSize="large" bsStyle="primary" title={username}>
           <MenuItem style={{'width': '21rem'}} eventKey="4" onSelect={this.handleSignOut}>Sign out</MenuItem>
         </DropdownButton>
       </div>
     )
     const PrivateMessageModal = (
-      <div>
+      <div className="modalWrapper">
         <Modal bsSize="small" key={1} show={this.state.privateChannelModal} onHide={this.closePrivateChannelModal}>
         <Modal.Header>
           {this.state.targetedUser.username}
@@ -127,21 +134,45 @@ export default class Chat extends Component {
         </Modal>
       </div>
     )
+    const mobileNav = (
+      <Navbar fixedTop style={{background: '#337ab7', color: 'white'}}>
+          <span style={{fontSize: '2em'}}>{username}</span>
+          <Navbar.Toggle />
+        <Navbar.Collapse style={{maxHeight: '100%'}}>
+          <Button bsStyle="primary" onSelect={this.handleSignOut}> Sign out
+          </Button>
+          <section style={{order: '2', marginTop: '1.5em'}}>
+            <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
+          </section>
+        </Navbar.Collapse>
+      </Navbar>
+    );
+    const bigNav = (
+      <div className="nav">
+        {dropDownMenu}
+        <section style={{order: '2', marginTop: '1.5em'}}>
+          <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
+        </section>
+      </div>
+    );
+    let backToLobby = activeChannel === 'Lobby' ? null : <button onClick={this.lobby} className="btn">Back To Lobby</button>
     return (
       <div>
         <div className="nav">
           {dropDownMenu}
+          {backToLobby}
           <section style={{order: '2', marginTop: '1.5em'}}>
             <Channels socket={socket} onClick={this.changeActiveChannel} channels={channels} messages={messages} dispatch={dispatch} />
           </section>
         </div>
+        {PrivateMessageModal}
         <div className="main">
           <header style={{background: '#FFFFFF', color: 'black', flexGrow: '0', order: '0', fontSize: '2.3em', paddingLeft: '0.2em'}}>
             <div>
             {activeChannel}
             </div>
           </header>
-          {PrivateMessageModal}
+          
           <ul style={{wordWrap: 'break-word', margin: '0', overflowY: 'auto', padding: '0', paddingBottom: '1em', flexGrow: '1', order: '1'}} ref="messageList">
             {filteredMessages.map(message =>
               <MessageListItem handleClickOnUser={this.handleClickOnUser} message={message} key={message.id} />

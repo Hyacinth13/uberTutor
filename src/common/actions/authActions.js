@@ -129,7 +129,7 @@ function requestSignIn() {
   }
 }
 
-function receiveSignIn(username) {
+export function receiveSignIn(username) {
   const user = {
     name: username,
     id: Symbol(username)

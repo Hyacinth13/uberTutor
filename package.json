@@ -1,5 +1,5 @@
 {
-  "name": "React-redux-socketio-chat",
+  "name": "Super-Tutor",
   "version": "0.7.1",
   "description": "react frontend, socketio powered chat. redux as the flux implementation",
   "main": "server.js",
@@ -85,7 +85,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "4.0.0",
     "react": "^0.14.6",
-    "react-bootstrap": "^0.28.1",
+    "react-bootstrap": "0.28.5",
     "react-cookie": "^0.4.3",
     "react-dom": "^0.14.6",
     "react-materialize": "^0.14.3",
